@@ -190,9 +190,9 @@ class Image extends \yii\db\ActiveRecord
 
                         $image->thumbnail($size['width'], $size['height']);
                     }elseif($size['height']){
-                        $image->fit_to_height($size['height']);
+                        $image->fitToHeight($size['height']);
                     }elseif($size['width']){
-                        $image->fit_to_width($size['width']);
+                        $image->fitToWidth($size['width']);
                     }else{
                         throw new \Exception('Something wrong with this->module->parseSize($sizeString)');
                     }
@@ -226,7 +226,7 @@ class Image extends \yii\db\ActiveRecord
 
                         //throw new Exception($waterMarkPath);
                         if(!file_exists($waterMarkPath)){
-                            $waterMark->fit_to_width($wmMaxWidth);
+                            $waterMark->fitToWidth($wmMaxWidth);
                             $waterMark->save($waterMarkPath, 100);
                             if(!file_exists($waterMarkPath)){
                                 throw new Exception('Cant save watermark to '.$waterMarkPath.'!!!');
