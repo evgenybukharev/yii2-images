@@ -227,7 +227,7 @@ class Image extends \yii\db\ActiveRecord
                         //throw new Exception($waterMarkPath);
                         if(!file_exists($waterMarkPath)){
                             $waterMark->fitToWidth($wmMaxWidth);
-                            $waterMark->save($waterMarkPath, 100);
+                            $waterMark->toFile($waterMarkPath, 100);
                             if(!file_exists($waterMarkPath)){
                                 throw new Exception('Cant save watermark to '.$waterMarkPath.'!!!');
                             }
@@ -239,7 +239,7 @@ class Image extends \yii\db\ActiveRecord
 
                 }
 
-                $image->save($pathToSave, $this->getModule()->imageCompressionQuality );
+                $image->toFile($pathToSave, $this->getModule()->imageCompressionQuality );
             }
 
         return $image;
