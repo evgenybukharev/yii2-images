@@ -101,7 +101,7 @@ class Image extends \yii\db\ActiveRecord
             $image = new \Imagick($this->getPathToOrigin());
             $sizes = $image->getImageGeometry();
         }else{
-            $image = new \abeautifulsite\SimpleImage($this->getPathToOrigin());
+            $image = new  \claviska\SimpleImage($this->getPathToOrigin());
             $sizes['width'] = $image->get_width();
             $sizes['height'] = $image->get_height();
         }
@@ -183,7 +183,7 @@ class Image extends \yii\db\ActiveRecord
                 $image->writeImage($pathToSave);
             }else{
 
-                $image = new \abeautifulsite\SimpleImage($imagePath);
+                $image = new  \claviska\SimpleImage($imagePath);
 
                 if($size){
                     if($size['height'] && $size['width']){
@@ -210,7 +210,7 @@ class Image extends \yii\db\ActiveRecord
 
                     $waterMarkPath = Yii::getAlias($this->getModule()->waterMark);
 
-                    $waterMark = new \abeautifulsite\SimpleImage($waterMarkPath);
+                    $waterMark = new  \claviska\SimpleImage($waterMarkPath);
 
 
                     if(
